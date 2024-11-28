@@ -3,7 +3,7 @@ Make sure you have `env` file at `/settings` directory. Note that it is NOT `.en
 
 ## Deploying new StableSwap-NG pool
 
-Example for dUSD/FRAX
+**Example for dUSD/FRAX**
 ```
 python deploy_stableswap_pool.py \
     --name "dUSD-FRAX" \
@@ -19,7 +19,7 @@ python deploy_stableswap_pool.py \
 python manage.py deploy crypto_pool {chain} {pool name} {pool symbol} {coins separated by comma}
 ```
 
-Example
+**Example**
 ```
 FXS/dUSD
 
@@ -31,7 +31,7 @@ python manage.py deploy crypto_pool fraxtal_testnet dTrinity_FXS_dUSD FXSDUSD 0x
 python add_liquidity.py --pool_address {pool_address} --amount_token_0 {amount_with_decimals} --amount_token_1 {amount_with_decimals}
 ```
 
-Example
+**Example**
 ```
 FXS/dUSD
 
@@ -39,23 +39,38 @@ python add_liquidity.py --pool_address 0xD978195666B3863Bed21C240f260d0F8bBa3250
 ```
 
 ## Swap using command
+### Two-crypto pool
 ```
 python swap.py --pool_address {pool_address} --views_address {views_address} --amount_token_0 {amount_with_decimals}
 ```
 
 You can find views address in deployment file at [deployments](/deployments) directory.
 
-Example
+**Example**
 ```
 python swap.py --pool_address 0x1BBB5CAf76868698F00056f48f77ba13cfc5fE8D --views_address 0x0D5824948C879Fa459e41008F66E1Efc9211Cc32 --amount_token_0 4421718
 ```
 
-## Get pool info to CurveJS using command
+### StableNG pool
 ```
-python get_pool_info.py --pool_addresses {pool_address1} {pool_address2} ...
+python swap_stableng.py --pool_address {pool_address} --views_address {views_address} --amount_token_0 {amount_with_decimals}
 ```
 
-Example
+You can find views address in deployment file at [deployments](/deployments) directory.
+
+**Example**
+
+Swap 4.421718 dUSD to FRAX
 ```
-python get_pool_info.py --pool_addresses 0x1BBB5CAf76868698F00056f48f77ba13cfc5fE8D 0xD978195666B3863Bed21C240f260d0F8bBa3250b
+python swap_stableng.py --pool_address 0x1FCa361032eE8123cbeB82Ae2dfA169e4d56fcd0 --views_address 0x4b2F4a6d6428edd0Ba7bac35A239A6a35C8cCa78 --amount_token_0 4421718
+```
+
+## Get pool info to CurveJS using command
+```
+python get_pool_info_cryptoswap.py --pool_addresses {pool_address1} {pool_address2} ...
+```
+
+**Example**
+```
+python get_pool_info_cryptoswap.py --pool_addresses 0x1BBB5CAf76868698F00056f48f77ba13cfc5fE8D 0xD978195666B3863Bed21C240f260d0F8bBa3250b
 ```
