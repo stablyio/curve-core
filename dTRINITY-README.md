@@ -27,8 +27,9 @@ python manage.py deploy crypto_pool fraxtal_testnet dTrinity_FXS_dUSD FXSDUSD 0x
 ```
 
 ## Add liquidity using command
+### Two-crypto pool
 ```
-python add_liquidity.py --pool_address {pool_address} --amount_token_0 {amount_with_decimals} --amount_token_1 {amount_with_decimals}
+python add_liquidity_cryptoswap.py --pool_address {pool_address} --amount_token_0 {amount_with_decimals} --amount_token_1 {amount_with_decimals}
 ```
 
 **Example**
@@ -36,6 +37,18 @@ python add_liquidity.py --pool_address {pool_address} --amount_token_0 {amount_w
 FXS/dUSD
 
 python add_liquidity.py --pool_address 0xD978195666B3863Bed21C240f260d0F8bBa3250b --amount_token_0 2000000000000000000 --amount_token_1 1500000
+```
+
+### StableNG pool
+```
+python add_liquidity_stableswap.py --pool_address {pool_address} --amount_token_0 {amount_with_decimals} --amount_token_1 {amount_with_decimals}
+```
+
+**Example**
+```
+dUSD/FRAX
+
+python add_liquidity_stableswap.py --pool_address 0x1FCa361032eE8123cbeB82Ae2dfA169e4d56fcd0 --amount_token_0 2000000 --amount_token_1 2000000000000000000
 ```
 
 ## Swap using command

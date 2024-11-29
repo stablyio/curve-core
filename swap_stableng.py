@@ -34,7 +34,6 @@ token1 = boa.load_partial(Path(BASE_DIR, "tutorial", "contracts", "ERC20mock.vy"
 assert token0.balanceOf(account.address) >= AMOUNT_TOKEN_0, "Not enough tokens to add"
 
 amount_out = views.get_dy(0, 1, AMOUNT_TOKEN_0, POOL_ADDRESS)
-
 token0.approve(POOL_ADDRESS, AMOUNT_TOKEN_0)
 
 pool.exchange(0, 1, AMOUNT_TOKEN_0, amount_out)
